@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Validación del formulario
   const formulario = document.getElementById('formulario-contacto');
-
   if (formulario) {
     formulario.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -27,15 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const mostrarSeccionesVisibles = () => {
     secciones.forEach(sec => {
       const top = sec.getBoundingClientRect().top;
-      if (top < window.innerHeight - 100) {
+      if (top < window.innerHeight - 150) {
         sec.classList.add('mostrar');
       }
     });
   };
 
-  // Mostrar al cargar
+  // Muestra las secciones al cargar la página
   mostrarSeccionesVisibles();
 
-  // Mostrar al hacer scroll
+  // Muestra las secciones al hacer scroll
   window.addEventListener('scroll', mostrarSeccionesVisibles);
 });

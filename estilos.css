@@ -1,4 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+:root {
+  --primary-color: #2a5298;
+  --secondary-color: #1e3c72;
+  --accent-color: #ffd700;
+  --text-color: #333;
+  --light-gray: #f5f5f5;
+  --dark-bg: #222;
+}
 
 * {
   margin: 0;
@@ -6,172 +15,198 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  line-height: 1.6;
-  background-color: #f5f5f5;
-  color: #333;
+html {
   scroll-behavior: smooth;
 }
 
-header {
-  background: linear-gradient(90deg, #1e3c72, #2a5298);
-  color: white;
-  padding: 1rem 2rem;
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background-color: var(--light-gray);
+  color: var(--text-color);
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: #ffd700;
-}
-
+/* --- Estilos generales de secciones --- */
 section {
-  text-align: center;
-  margin: auto;
-  padding: 2rem;
+  padding: 5rem 0;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 section.mostrar {
-  text-align: center;
-  margin: auto;
   opacity: 1;
   transform: translateY(0);
 }
 
 h2 {
-  margin-bottom: 1rem;
-  animation: fadeInUp 1s ease-in-out;
+  font-weight: 700;
+  color: var(--secondary-color);
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
 }
 
-.proyecto {
-  background: white;
-  border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+/* --- Navbar --- */
+.navbar {
+  background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+}
+
+.navbar-brand,
+.nav-link {
+  color: white !important;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar-brand:hover,
+.nav-link:hover,
+.nav-link.active {
+  color: var(--accent-color) !important;
+}
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* --- Sección de inicio (Hero) --- */
+.hero-section {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/hero-bg.jpg') no-repeat center center/cover;
+}
+
+.hero-section h1 {
+  font-weight: 700;
+}
+
+/* --- Sección Sobre mí --- */
+.foto-perfil {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border: 5px solid var(--primary-color);
+  transition: transform 0.3s ease;
+}
+
+.foto-perfil:hover {
+  transform: scale(1.05);
+}
+
+/* --- Sección de Proyectos --- */
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
   transition: transform 0.3s;
 }
 
-.proyecto:hover {
-  transform: scale(1.02);
+.card:hover .card-img-top {
+  transform: scale(1.1);
 }
 
-.proyecto img {
-  max-width: 100%;
-  border-radius: 4px;
-}
-
-.habilidades {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.habilidades li {
-  margin: auto;
-  background: #ddd;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  transition: background 0.3s;
-}
-
-.habilidades li:hover {
-  background: #bbb;
-}
-
-form {
-  text-align: center;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 600px;
-}
-
-input, textarea {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-family: 'Poppins', sans-serif;
-}
-
-button {
-  padding: 0.5rem;
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  color: white;
+.card {
+  overflow: hidden;
+  border-radius: 15px;
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: transform 0.3s, background 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-button:hover {
-  transform: scale(1.05);
-  background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
 }
 
-footer {
-  background: #222;
+/* --- Sección de Habilidades --- */
+.habilidades-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.skill-item {
+  margin-bottom: 2rem;
+}
+
+.skill-item p {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.progress {
+  height: 25px;
+  background-color: #e9ecef;
+}
+
+.progress-bar {
+  font-size: 0.8rem;
+  font-weight: 500;
+  background-color: var(--primary-color);
+}
+
+/* --- Sección de Contacto --- */
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(42, 82, 152, 0.25);
+}
+
+.social-links a {
+  font-size: 1.8rem;
+  color: var(--text-color);
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: var(--primary-color);
+}
+
+/* --- Botones --- */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.btn-outline-dark {
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  transition: all 0.3s;
+}
+
+.btn-outline-dark:hover {
+  background-color: var(--secondary-color);
   color: white;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
 }
 
-/* --- Estilos para la sección sobre mí --- */
-.perfil {
-    justify-content: center;  /*centra horizontalmente*/
-    flex-direction: center;   /*asegura que el titulo quede arriba*/
-    text-align: center;
-    justify-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;   /*centra verticalmente*/
-    gap: 2rem;
-    margin-top: 1rem;
+/* --- Footer --- */
+footer {
+  background: var(--secondary-color);
+}
+
+/* --- Media Queries para responsividad --- */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.5rem;
   }
-  
-  .foto-perfil {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid #2a5298;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .descripcion {
-    max-width: 600px;
-    text-align: justify;
-  }
+}
