@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Portafolio - Yanpol Silva</title>
+
+  <!-- Fuente Poppins desde Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Enlace al archivo de estilos externo -->
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <h1>Yanpol Silva</h1>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="inicio">
+    <h2>¡Hola! Soy Yanpol</h2>
+    <p>Desarrollador web junior apasionado por crear sitios web accesibles y responsivos.</p>
+  </section>
+  
+  <section id="sobre-mi" class="mostrar">
+    <h2>Sobre mí</h2>
+    <div class="perfil">
+      <img src="" alt="Foto de Yanpol Silva" class="foto-perfil" />
+      <div class="descripcion">
+        <p>¡Hola! Soy <strong>Yanpol Silva</strong>, estudiante de la carrera de ing. se Sistemas e Informática de la universidad Continental y que esta aprendiendo Diseño web. Esperando a dominar todas la herramientas que se requieran para poder ser un buen desarrollo web, aplicaciones móviles y videojuegos, y disfruto ver videos noticias de como la tecnologia esta avanzando cad adia más.</p>
+        <p>Actualmente curso el tercer ciclo de mi carrera, año 2025, haciendo proyectos educativos, y desarrollo de sistemas para pequeñas empresas. Me apasiona crear soluciones funcionales con HTML, CSS, JavaScript, y frameworks modernos.</p>
+      </div>
+    </div>
+  </section>
+  
+
+  <section id="proyectos">
+    <h2>Proyectos</h2>
+    <div class="proyecto">
+      <img src="img/proyecto1.png" alt="Captura del Proyecto 1" />
+      <h3>Landing Page de Panadería</h3>
+      <p>Diseño simple con enfoque visual para una panadería local.</p>
+      <a href="#" target="_blank">Ver Demo</a>
+      <a href="#" target="_blank">Código Fuente</a>
+    </div>
+    <div class="proyecto">
+      <img src="img/proyecto_cosmetologia.png" alt="Captura del Proyecto 2" />
+      <h3>Pagina web de un salon de belleza</h3>
+      <p>Modelo simple que destaca todo lo que ofrece esta micro empresa Yudit Salon</p>
+      <a href="#" target="_blank">Ver Demo</a>
+      <a href="#" target="_blank">Código Fuente</a>
+    </div>
+  </section>
+
+  <section id="habilidades">
+    <h2>Habilidades</h2>
+    <ul class="habilidades">
+      <li>HTML5</li>
+      <li>CSS3</li>
+      <li>JavaScript</li>
+      <li>Git y GitHub</li>
+    </ul>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <form id="formulario-contacto">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required />
+
+      <label for="correo">Correo electrónico:</label>
+      <input type="email" id="correo" name="correo" required />
+
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Yanpol Silva. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Enlace al archivo JS externo -->
+  <script src="script.js"></script>
+</body>
+
+</html>
