@@ -38,3 +38,47 @@ document.addEventListener('DOMContentLoaded', () => {
   // Muestra las secciones al hacer scroll
   window.addEventListener('scroll', mostrarSeccionesVisibles);
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+  const textElement = document.querySelector('.text-animation');
+  const textToAnimate = "¡Hola! Soy Yanpol Silva";
+  let textIndex = 0;
+  let isDeleting = false;
+
+  function typeWriter() {
+      // Obtenemos el texto actual
+      const currentText = textToAnimate.substring(0, textIndex);
+      textElement.textContent = currentText;
+
+      // Comprueba si está en modo de borrado
+      if (!isDeleting) {
+          // Modo de escritura
+          textIndex++;
+          if (textIndex > textToAnimate.length) {
+              // Si el texto se ha escrito por completo,
+              // activa el modo de borrado y espera 1 segundo
+              isDeleting = true;
+              setTimeout(typeWriter, 1000); 
+          } else {
+              // Continúa escribiendo
+              setTimeout(typeWriter, 100); 
+          }
+      } else {
+          // Modo de borrado
+          textIndex--;
+          if (textIndex < 0) {
+              // Si el texto se ha borrado por completo,
+              // desactiva el modo de borrado, resetea el índice y espera 0.5 segundos
+              isDeleting = false;
+              textIndex = 0;
+              setTimeout(typeWriter, 500); 
+          } else {
+              // Continúa borrando
+              setTimeout(typeWriter, 50); 
+          }
+      }
+  }
+
+  // Inicia la animación
+  typeWriter();
+});
