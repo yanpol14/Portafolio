@@ -26,6 +26,46 @@ body {
   color: var(--text-color);
 }
 
+/* --- Estilos generales de secciones --- */
+section {
+  padding: 5rem 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+section.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h2 {
+  font-weight: 700;
+  color: var(--secondary-color);
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+}
+
+.py-5{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+  }
 
 /* --- Sección de Contacto --- */
 .h2_proyec{
@@ -39,15 +79,6 @@ body {
 
 .mb-5{
   margin-top: 50px;
-}
-
-.py-5{
-min-height: 100vh;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding: 50px 20px;
 }
 
 .form-control:focus {
@@ -114,15 +145,6 @@ color: white;
 
 /* --- Sección de Habilidades --- */
 
-.py-5{
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 50px 20px;
-}
-
 .h2_hab{
     margin-top: 100px;
 }
@@ -153,38 +175,6 @@ color: white;
 }
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-
-/* --- Estilos generales de secciones --- */
-section {
-  padding: 5rem 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-section.mostrar {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-h2 {
-  font-weight: 700;
-  color: var(--secondary-color);
-  position: relative;
-  display: inline-block;
-  margin-bottom: 2rem;
-}
-
-h2::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 4px;
-  background-color: var(--primary-color);
-  border-radius: 2px;
 }
 
 /* --- Navbar --- */
