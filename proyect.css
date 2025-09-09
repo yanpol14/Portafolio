@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
 
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
   --primary-color: #2a5298;
   --secondary-color: #1e3c72;
@@ -7,12 +14,6 @@
   --text-color: #333;
   --light-gray: #f5f5f5;
   --dark-bg: #222;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 html {
@@ -24,19 +25,6 @@ body {
   line-height: 1.6;
   background-color: var(--light-gray);
   color: var(--text-color);
-}
-
-/* --- Estilos generales de secciones --- */
-section {
-  padding: 5rem 0;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-section.mostrar {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 h2 {
@@ -57,6 +45,27 @@ h2::after {
   height: 4px;
   background-color: var(--primary-color);
   border-radius: 2px;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+}
+
+.h2_proyec{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.hero-section h1 {
+  font-weight: 700;
 }
 
 /* --- Navbar --- */
@@ -87,42 +96,51 @@ h2::after {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-/* --- Sección de inicio (Hero) --- */
-.hero-section {
-  min-height: 100vh;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('img/hero-bg.jpg') no-repeat center center/cover;
-}
-
-.hero-section h1 {
-  font-weight: 700;
-}
-
-/* --- Sección Sobre mí --- */
-
-.py-5{
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 50px 20px;
-}
-
-.foto-perfil {
-  width: 250px;
-  height: 250px;
+/* --- Sección de Proyectos --- */
+.card-img-top {
+  height: 200px;
   object-fit: cover;
-  border: 5px solid var(--primary-color);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s;
 }
 
-.foto-perfil:hover {
-  transform: scale(1.05);
+.card:hover .card-img-top {
+  transform: scale(1.1);
 }
 
-/* --- Footer --- */
-footer {
-  background: var(--secondary-color);
+.card {
+  overflow: hidden;
+  border-radius: 15px;
+  border: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Botones --- */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.btn-outline-dark {
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  transition: all 0.3s;
+}
+
+.btn-outline-dark:hover {
+  background-color: var(--secondary-color);
+  color: white;
 }
 
 /* --- Media Queries para responsividad --- */
@@ -130,4 +148,10 @@ footer {
   .hero-section h1 {
     font-size: 2.5rem;
   }
+}
+
+
+/* --- Footer --- */
+footer {
+  background: var(--secondary-color);
 }
