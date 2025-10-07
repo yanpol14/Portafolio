@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Animación al hacer scroll
   const secciones = document.querySelectorAll('section');
-
   const mostrarSeccionesVisibles = () => {
     secciones.forEach(sec => {
       const top = sec.getBoundingClientRect().top;
@@ -31,54 +30,41 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   };
-
-  // Muestra las secciones al cargar la página
   mostrarSeccionesVisibles();
-
-  // Muestra las secciones al hacer scroll
   window.addEventListener('scroll', mostrarSeccionesVisibles);
-});
 
-document.addEventListener("DOMContentLoaded", function() {
+  // Animación de escribir y borrar
   const textElement = document.querySelector('.text-animation');
-  const textToAnimate = "¡Hola! Soy Yanpol Silva";
+  const textToAnimate = "Hola! Soy Yanpol Silva";
   let textIndex = 0;
   let isDeleting = false;
 
   function typeWriter() {
-      // Obtenemos el texto actual
-      const currentText = textToAnimate.substring(0, textIndex);
-      textElement.textContent = currentText;
+    if (!textElement) return;
 
-      // Comprueba si está en modo de borrado
-      if (!isDeleting) {
-          // Modo de escritura
-          textIndex++;
-          if (textIndex > textToAnimate.length) {
-              // Si el texto se ha escrito por completo,
-              // activa el modo de borrado y espera 1 segundo
-              isDeleting = true;
-              setTimeout(typeWriter, 1000); 
-          } else {
-              // Continúa escribiendo
-              setTimeout(typeWriter, 100); 
-          }
+    const currentText = textToAnimate.substring(0, textIndex);
+    textElement.textContent = currentText;
+
+    if (!isDeleting) {
+      textIndex++;
+      if (textIndex > textToAnimate.length) {
+        isDeleting = true;
+        setTimeout(typeWriter, 1200); // Espera antes de borrar
       } else {
-          // Modo de borrado
-          textIndex--;
-          if (textIndex < 0) {
-              // Si el texto se ha borrado por completo,
-              // desactiva el modo de borrado, resetea el índice y espera 0.5 segundos
-              isDeleting = false;
-              textIndex = 0;
-              setTimeout(typeWriter, 500); 
-          } else {
-              // Continúa borrando
-              setTimeout(typeWriter, 50); 
-          }
+        setTimeout(typeWriter, 120); // Velocidad de escritura
       }
+    } else {
+      textIndex--;
+      if (textIndex < 0) {
+        isDeleting = false;
+        setTimeout(typeWriter, 700); // Espera antes de volver a escribir
+      } else {
+        setTimeout(typeWriter, 60); // Velocidad de borrado
+      }
+    }
   }
 
-  // Inicia la animación
-  typeWriter();
+  if (textElement) {
+    typeWriter();
+  }
 });
