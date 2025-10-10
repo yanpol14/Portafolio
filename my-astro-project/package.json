@@ -1,0 +1,19 @@
+{
+  "name": "my-astro-project",
+  "version": "1.0.0",
+  "description": "A project built with Astro",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "start": "astro start"
+  },
+  "dependencies": {
+    "astro": "^2.0.0",
+    "bootstrap": "^5.3.8",
+    "tailwind": "^4.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
