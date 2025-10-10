@@ -67,4 +67,43 @@ document.addEventListener('DOMContentLoaded', () => {
   if (textElement) {
     typeWriter();
   }
+
+  // ===============================
+  // 📊 Animación de barras de habilidades
+  // ===============================
+  const progressBars = document.querySelectorAll(".progress-bar");
+
+  const animateBar = (bar) => {
+    const targetWidth = bar.getAttribute("style").match(/width:\s*(\d+)%/)[1];
+    bar.style.width = "0%";
+    bar.textContent = "0%";
+
+    let current = 0;
+    const increment = () => {
+      if (current < targetWidth) {
+        current++;
+        bar.style.width = current + "%";
+        bar.textContent = current + "%";
+        requestAnimationFrame(increment);
+      }
+    };
+    increment();
+  };
+
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateBar(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  progressBars.forEach(bar => {
+    observer.observe(bar);
+  });
+
 });
