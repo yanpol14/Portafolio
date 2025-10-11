@@ -1,0 +1,8 @@
+# node
+node_modules/
+# build outputs
+dist/
+# lock files opcional (si no quieres subirlo)
+# package-lock.json
+# environment files
+.env
