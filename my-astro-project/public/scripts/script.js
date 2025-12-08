@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Animación de escribir y borrar
   const textElement = document.querySelector('.text-animation');
-  const textToAnimate = "Hola! Soy Yanpol Silva";
+  const textToAnimate = "Hola! Soy Yanpol Silva.";
   let textIndex = 0;
   let isDeleting = false;
 
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ===============================
-  // 📊 Animación de barras de habilidades
+  // Animación de barras de habilidades
   // ===============================
   const progressBars = document.querySelectorAll(".progress-bar");
 
